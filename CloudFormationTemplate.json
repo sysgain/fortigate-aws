@@ -89,13 +89,13 @@
             "Description": "access key of your aws account",
             "NoEcho": "true",
             "Type": "String",
-            "Default": "AKIAZO56MC7UB2FWYGB7"
+            "Default": ""
         },
         "AwsSecretKey": {
             "Description": "secret key of your aws account",
             "NoEcho": "true",
             "Type": "String",
-            "Default": "R4m7VQkPH4bmtq17Gh+Z4HImLJgdr9DEgayqLmVH"
+            "Default": ""
         }
     },
     "Mappings" : {
@@ -548,7 +548,7 @@
                     "python3.7"
                 ],
                 "Content": {
-                    "S3Bucket": "fg-layer-ohio",
+                    "S3Bucket": {"Fn::Join" : [ "-", ["fg-layer", { "Ref": "AWS::Region"}] ]},
                     "S3Key": "lambdaLayer.zip"
                 },
                 "Description": "boto3 package Layer",
